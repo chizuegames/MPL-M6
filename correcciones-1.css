@@ -1,4 +1,4 @@
-/* Correcciones de interacción — ronda 1 */
+/* Correcciones de interacción — ronda 2 */
 
 /* El reset del encuentro deja display:none inline. Estas reglas fuerzan a
    reaparecer únicamente los controles correspondientes al modo activo. */
@@ -38,3 +38,18 @@
 #gunButton{left:4% !important;top:48% !important;width:40% !important;height:32% !important}
 #fistButton{left:58% !important;top:48% !important;width:40% !important;height:32% !important}
 #specialTopButton,#fleeButton{left:2% !important;top:2% !important;width:37% !important;height:23% !important}
+
+/* El arte original del escáner tiene las ondas al lado contrario. Se refleja
+   primero y luego se mantiene la rotación correspondiente a cada dirección. */
+.scan-image.dir-up{transform:translate(-50%,-50%) rotate(0deg) scaleX(-1) !important}
+.scan-image.dir-right{transform:translate(-50%,-50%) rotate(90deg) scaleX(-1) !important}
+.scan-image.dir-left{transform:translate(-50%,-50%) rotate(-90deg) scaleX(-1) !important}
+.scan-image.dir-down{transform:translate(-50%,-50%) rotate(180deg) scaleX(-1) !important}
+
+/* Solo los avisos de deterioro periódico por falta de oxígeno van en rojo. */
+#message.danger{
+  border-color:#ff3b3b !important;
+  background:rgba(52,8,10,.97) !important;
+  color:#fff !important;
+  box-shadow:0 0 26px rgba(255,59,59,.58) !important;
+}
