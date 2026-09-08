@@ -52,18 +52,19 @@ const FIXED_DEFINITIONS={
   A13:{type:"simple",label:"CAJA DE OBJETO",card:"CJO.png",icon:"ICOCO.png",reward:"TOMA UN OBJETO"}
 };
 
-/* Las diez fichas B se sortean. Los híbridos vuelven al mazo tras huir. */
+/* Las diez fichas B se sortean. Los híbridos vuelven al mazo tras huir.
+   Regla general: E siempre es el encuentro inicial y F el resultado/final. */
 const B_EVENT_POOL_TEMPLATE=[
   {sourceId:"B1",type:"simple",label:"CAJA DE OBJETO",card:"CJO.png",icon:"ICOCO.png",reward:"TOMA UN OBJETO"},
   {sourceId:"B2",type:"simple",label:"TRAMPA DE VIDA",card:"TRV.png",icon:"ICOTR.png",reward:"PIERDE 1 DE VIDA"},
-  {sourceId:"B3",type:"hybrid",label:"HÍBRIDO",card:"B9F.png",finalCard:"B9E.png",icon:"ICOK.png",reusable:true},
-  {sourceId:"B4",type:"hybrid",label:"HÍBRIDO",card:"B9F.png",finalCard:"B9E.png",icon:"ICOK.png",reusable:true},
+  {sourceId:"B3",type:"hybrid",label:"HÍBRIDO",card:"B9E.png",finalCard:"B9F.png",icon:"ICOK.png",reusable:true},
+  {sourceId:"B4",type:"hybrid",label:"HÍBRIDO",card:"B9E.png",finalCard:"B9F.png",icon:"ICOK.png",reusable:true},
   {sourceId:"B5",type:"simple",label:"CAJA DE OBJETO",card:"CJO.png",icon:"ICOCO.png",reward:"TOMA UN OBJETO"},
   {sourceId:"B6",type:"simple",label:"VIDA",card:"SDV.png",icon:"ICOV.png",reward:"MÁS 1 DE VIDA"},
   {sourceId:"B7",type:"simple",label:"VIDA",card:"SDV.png",icon:"ICOV.png",reward:"MÁS 1 DE VIDA"},
   {sourceId:"B8",type:"simple",label:"VIDA",card:"SDV.png",icon:"ICOV.png",reward:"MÁS 1 DE VIDA"},
-  {sourceId:"B9",type:"hybrid",label:"HÍBRIDO",card:"B9F.png",finalCard:"B9E.png",icon:"ICOK.png",reusable:true},
-  {sourceId:"B10",type:"hybrid",label:"HÍBRIDO",card:"B9F.png",finalCard:"B9E.png",icon:"ICOK.png",reusable:true}
+  {sourceId:"B9",type:"hybrid",label:"HÍBRIDO",card:"B9E.png",finalCard:"B9F.png",icon:"ICOK.png",reusable:true},
+  {sourceId:"B10",type:"hybrid",label:"HÍBRIDO",card:"B9E.png",finalCard:"B9F.png",icon:"ICOK.png",reusable:true}
 ];
 const B_ROOMS=["B1","B2","B3","B4","B5","B6","B7","B8","B9","B10"];
 
