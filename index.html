@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+  <title>MPL - Misión 6</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="introOverlay">
+    <section id="introPage1" class="intro-page active">
+      <img class="intro-image" src="M01a.png" alt="Mensaje de misión recibido">
+    </section>
+
+    <section id="introPage2" class="intro-page">
+      <img class="intro-image" src="M01b.png" alt="Misión 6">
+      <button id="acceptMissionButton" type="button">ACEPTAR</button>
+    </section>
+
+    <section id="dockPage" class="intro-page">
+      <div id="dockScene">
+        <img id="dockBaseImage" class="dock-base" src="MIa.png" alt="Nave infestada">
+        <img id="dockShip" src="NVKael.png" alt="Nave de Kael">
+        <div id="dockFlash"></div>
+      </div>
+    </section>
+  </div>
+
+  <div id="game">
+    <div id="map">
+      <img id="mapImage" src="MIc100.png" alt="Mapa de la Misión 6" draggable="false">
+      <div id="roomsLayer"></div>
+      <div id="iconsLayer"></div>
+
+      <button id="scannerButton" type="button" aria-label="Escáner"></button>
+      <button id="useObjectButton" type="button" aria-label="Usar objeto"></button>
+      <button id="musicButton" type="button" aria-label="Desactivar música">♫</button>
+      <div id="oxygenCounter">100%</div>
+    </div>
+  </div>
+
+  <audio id="introMusic" loop preload="auto">
+    <source src="Echoes in the Subway.mp3" type="audio/mpeg">
+  </audio>
+  <audio id="bgMusic" loop preload="auto">
+    <source src="Infested Vessel.mp3" type="audio/mpeg">
+  </audio>
+
+  <div id="tutorialOverlay">
+    <div id="tutorialPanel">
+      <div id="tutorialText"></div>
+      <button id="tutorialNext" type="button">SIGUIENTE</button>
+    </div>
+  </div>
+
+  <div id="encounter">
+    <div id="encounterCard">
+      <img id="encounterImage" src="" alt="Encuentro" draggable="false">
+      <div id="encounterFallback"></div>
+      <div id="enemyHp"></div>
+
+      <button id="gunButton" class="attack-zone" type="button" aria-label="Disparar"></button>
+      <button id="fistButton" class="attack-zone" type="button" aria-label="Golpear"></button>
+      <button id="specialTopButton" class="special-zone" type="button" aria-label="Acción especial superior"></button>
+      <button id="specialLowerButton" class="special-zone" type="button" aria-label="Acción especial inferior"></button>
+      <button id="fleeButton" class="special-zone" type="button" aria-label="Huir"></button>
+      <button id="encounterBackButton" type="button">VOLVER AL MAPA</button>
+    </div>
+  </div>
+
+  <div id="message"></div>
+
+  <div id="endOverlay">
+    <div id="endPanel">
+      <h1 id="endTitle"></h1>
+      <p id="endSubtitle"></p>
+    </div>
+  </div>
+
+  <script src="app-config.js"></script>
+  <script src="app-ui.js"></script>
+  <script src="app-encounters.js"></script>
+  <script src="app-main.js"></script>
+</body>
+</html>
