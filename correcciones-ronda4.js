@@ -25,15 +25,11 @@ function scannerTransformFor(targetRoom){
   const dy=target.y-origin.y;
 
   if(Math.abs(dx)>Math.abs(dy)){
-    /* derecha: punto izquierda / ondas derecha
-       izquierda: punto derecha / ondas izquierda */
     return dx>0
       ? "translate(-50%,-50%) rotate(-90deg)"
       : "translate(-50%,-50%) rotate(90deg)";
   }
 
-  /* abajo: punto arriba / ondas abajo
-     arriba: punto abajo / ondas arriba */
   return dy>0
     ? "translate(-50%,-50%) rotate(0deg)"
     : "translate(-50%,-50%) rotate(180deg)";
@@ -60,9 +56,11 @@ document.querySelectorAll(".scan-image").forEach(orientScannerElement);
 
 /* ---------------------------------------------------------
    2. LABORATORIO B
-   Nueva corrección solicitada: teniendo la llave B, ya NO se muestra A2E.
-   Se entra directamente a la secuencia A2F1 → ... → A2F6.
-   Sin llave, se conserva el bloqueo normal.
+   Con llave B:
+   A2F = encuentro de combate.
+   El monstruo tiene vida infinita y UN ataque no le hace daño.
+   Después del ataque inicia:
+   A2F1 → A2F2 → A2F3 → A2F4 → A2F5 → A2F6.
    --------------------------------------------------------- */
 const openEncounterBeforeRound4=openEncounter;
 openEncounter=function(room){
@@ -70,19 +68,26 @@ openEncounter=function(room){
 
   if(def.type==="labB" && typeof hasLabKey==="function" && hasLabKey("B")){
     showEncounterShell(room,def);
-    state.encounterMode="a2Sequence";
+
+    /* La primera escena dentro del laboratorio es A2F, no A2E. */
+    setEncounterImage("A2F.png","LABORATORIO B · COMBATE");
+
+    state.encounterMode="a2Combat";
+    state.a2AttackAttempts=0;
     state.a2SequenceIndex=0;
 
-    encounterCard.classList.remove("combat","branch","hybrid","special-top","special-lower");
-    enemyHp.style.display="none";
-    gunButton.style.display="none";
-    fistButton.style.display="none";
+    encounterCard.classList.remove("branch","hybrid","special-top","special-lower");
+    encounterCard.classList.add("combat");
+
+    enemyHp.textContent="∞";
+    enemyHp.style.removeProperty("display");
+    gunButton.style.removeProperty("display");
+    fistButton.style.removeProperty("display");
+
     fleeButton.style.display="none";
     specialTopButton.style.display="none";
     specialLowerButton.style.display="none";
     encounterBackButton.style.display="none";
-
-    showA2SequenceStep();
     return;
   }
 
@@ -123,7 +128,6 @@ missionComplete=function(){
   setTimeout(()=>{
     endOverlay.classList.remove("show");
     twist.classList.add("show");
-    /* sonido breve y grave para reforzar el tono de intriga */
     toneSweep(180,72,.75,.09,"sine");
   },2200);
 };
