@@ -1,0 +1,15 @@
+/* MPL M6 — orientación definitiva del escáner.
+   Esc1.png tiene el punto arriba y las ondas abriéndose hacia abajo.
+   Por eso cada rotación coloca el punto del lado de Kael y las ondas hacia afuera. */
+.scan-image.dir-down{
+  transform:translate(-50%,-50%) rotate(0deg) !important;
+}
+.scan-image.dir-up{
+  transform:translate(-50%,-50%) rotate(180deg) !important;
+}
+.scan-image.dir-right{
+  transform:translate(-50%,-50%) rotate(-90deg) !important;
+}
+.scan-image.dir-left{
+  transform:translate(-50%,-50%) rotate(90deg) !important;
+}
