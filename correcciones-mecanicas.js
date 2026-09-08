@@ -76,8 +76,12 @@ function walkNurseOneRoom(){
 chooseNurseRoamingRoom=function(){
   if(!state.nurseActivated||state.nurseSecondHealUsed)return;
   state.nurseRoom="A3";
-  state.nurseHasStartedWalking=false;
-  refreshRoomMarkers();
+
+  /* Si Kael alcanzó a salir de A3 antes del pequeño retardo de la secuencia,
+     consideramos que la enfermera ya quedó habilitada para caminar. */
+  state.nurseHasStartedWalking=state.currentRoom!=="A3";
+  if(state.nurseHasStartedWalking)walkNurseOneRoom();
+  else refreshRoomMarkers();
 };
 
 /* El código original ocultaba el icono si enfermera y Kael compartían sala.
