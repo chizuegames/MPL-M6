@@ -1,0 +1,40 @@
+/* Correcciones de interacción — ronda 1 */
+
+/* El reset del encuentro deja display:none inline. Estas reglas fuerzan a
+   reaparecer únicamente los controles correspondientes al modo activo. */
+#encounterCard.combat #gunButton,
+#encounterCard.combat #fistButton,
+#encounterCard.combat #enemyHp{
+  display:flex !important;
+}
+
+#encounterCard.branch #gunButton,
+#encounterCard.branch #fistButton{
+  display:block !important;
+}
+
+#encounterCard.special-top #specialTopButton{
+  display:block !important;
+}
+
+#encounterCard.special-lower #specialLowerButton{
+  display:block !important;
+}
+
+#encounterCard.hybrid #fleeButton{
+  display:block !important;
+}
+
+/* La cifra de vida queda centrada sobre el corazón de las cartas. */
+#enemyHp{
+  left:82% !important;
+  top:14.5% !important;
+  min-width:1.4em;
+  min-height:1.4em;
+  line-height:1;
+}
+
+/* Las zonas táctiles se amplían un poco sin alterar la imagen visible. */
+#gunButton{left:4% !important;top:48% !important;width:40% !important;height:32% !important}
+#fistButton{left:58% !important;top:48% !important;width:40% !important;height:32% !important}
+#specialTopButton,#fleeButton{left:2% !important;top:2% !important;width:37% !important;height:23% !important}
